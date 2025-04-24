@@ -1,0 +1,22 @@
+unmanaged implementation in class zcl_i_nrn_sales unique;
+strict ( 2 );
+
+define behavior for ZI_NRN_SALES alias Sales
+
+lock master
+authorization master ( instance )
+
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) Orderid;
+
+  mapping for ZTNRN_SALES_UN control ZSNRN_SALES_UN
+  {
+    Orderid = orderid;
+    Customer = customer;
+    Company = company;
+    Vendor = vendor;
+  }
+}
